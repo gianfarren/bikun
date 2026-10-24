@@ -1,11 +1,10 @@
 # bikun 🚌
 
-**Agent EMAS3 pribadi untuk mahasiswa UI.** Bikun membaca EMAS-mu tiap pagi dan malam: deadline, materi baru, dan jadwal kuis dari SAP. Lalu dia bikinin diktat sebelum kuliah dan sebelum kuis.
+Bikun is an AI agent for Universitas Indonesia students. It runs on Claude and reads EMAS3 (UI's Moodle) through your own login, twice a day.
 
-Seperti bis kuning yang datang sesuai jadwal: kamu cukup naik.
+Mornings, you get your deadlines and anything new on EMAS. Evenings, it tells you what's due tomorrow. On the right days it also writes a study guide: a short preview the night before a lecture, or a practice-heavy review once a kuis's material is done. Quiz dates come from each course's SAP, because most in-class quizzes never show up on the EMAS calendar.
 
-> **Tidak resmi.** Bikun dibuat oleh mahasiswa dan tidak berafiliasi dengan Universitas Indonesia. Bikun hanya *membaca* EMAS lewat akun kamu sendiri. Bikun tidak pernah mengumpulkan tugas, memposting, atau mengubah apa pun, dan tidak pernah mengetik password-mu.
-
+It's unofficial and read-only, and everything it makes stays in your own Google Drive. The rest of this README is in Bahasa Indonesia.
 ---
 
 ## Apa yang dikerjakan Bikun
