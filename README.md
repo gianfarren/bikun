@@ -102,4 +102,4 @@ Ketik biasa saja di chat Claude:
 
 ## Lisensi
 
-MIT. Lihat [LICENSE](LICENSE). Dibuat oleh [@gianfarren](https://github.com/gianfarren), mahasiswa Matematika UI.
+MIT. Lihat [LICENSE](LICENSE). Student-project by [@gianfarren](https://github.com/gianfarren)
