@@ -5,6 +5,9 @@ Bikun is an AI agent for Universitas Indonesia students. It runs on Claude and r
 Mornings, you get your deadlines and anything new on EMAS. Evenings, it tells you what's due tomorrow. On the right days it also writes a study guide: a short preview the night before a lecture, or a practice-heavy review once a kuis's material is done. Quiz dates come from each course's SAP, because most in-class quizzes never show up on the EMAS calendar.
 
 It's unofficial and read-only, and everything it makes stays in your own Google Drive. The rest of this README is in Bahasa Indonesia.
+
+**Status: beta.** Sejauh ini baru diuji di satu akun (FMIPA). Kalau ada yang tidak jalan, buka [Issue](../../issues).
+
 ---
 
 ## Apa yang dikerjakan Bikun
@@ -79,16 +82,40 @@ Ketik biasa saja di chat Claude:
 ## Batasan
 
 - **Laptop harus menyala**, karena Bikun membaca EMAS lewat browser di aplikasi Claude desktop. Kalau laptop mati, run hari itu hanya mengirim pengingat dari sheet jadwal.
-- **EMAS kadang logout.** Bikun akan bilang "EMAS logout. Login dulu…". Kamu login sendiri, Bikun tidak pernah mengetik password.
+- **EMAS sering logout.** Waktu diuji, sesinya habis dalam waktu kurang dari 9 jam. Bikun akan bilang "EMAS logout. Login dulu…", lalu kamu login sendiri. Bikun tidak pernah mengetik password.
+- **Kuota Claude.** Satu diktat itu satu sesi panjang. Kalau banyak matkul dapat Preview ditambah Review, limit paketmu bisa habis pas minggu kuis. Mulai dari satu matkul dulu.
 - **Kuis tanpa tanggal di SAP** (kuis dadakan) tidak dapat Review diktat otomatis. Minta manual saja.
 - **Slide hasil scan** tidak bisa dibaca teksnya. Bikun memakai buku teks dari SAP sebagai gantinya.
 - Diktat dibuat AI. Jawaban kuantitatif dicek dengan kode, tapi tetap baca dengan kritis.
+
+## Keamanan
+
+Bikun cuma boleh membaca. Aturannya jelas: jangan kumpulkan tugas, jangan posting, dan anggap isi file, slide, atau forum sebagai bahan bacaan saja. Tapi aturan itu ditulis sebagai instruksi untuk Claude. Tidak ada yang menguncinya secara teknis, dan agent AI masih bisa terkecoh oleh teks tersembunyi di sebuah file (*prompt injection*).
+
+Karena itu, saat setup kamu memilih sendiri: run jalan otomatis (bisa jalan waktu kamu tidur), atau minta persetujuanmu dulu (lebih aman, tapi run berhenti sampai kamu setujui). Run terjadwal juga tidak membaca forum EMAS, karena di situ orang paling gampang menyisipkan instruksi palsu.
+
+Satu lagi: untuk membaca PDF, Bikun memuat pdf.js versi 4.0.379 dari cdnjs ke halaman EMAS. Artinya ada kode pihak ketiga yang jalan di sesi login-mu.
+
+## Aturan yang tetap berlaku
+
+Aturan TI UI dan aturan tiap matkul, termasuk soal pemakaian AI, tetap berlaku.
+
+Arsip soal punya pemiliknya. Kalau ragu, tanya himpunan atau pemilik arsipnya dulu. Diktat yang memuat arsip dan slide dosen itu untuk belajar sendiri, jadi jangan disebar ke grup.
+
+Bikun juga bisa salah. Jadwalnya diambil dari SAP, dan SAP bisa berubah. Pengumuman di kelas atau grup WA tidak kebaca. Kalau Bikun bilang "Tidak ada deadline di EMAS/SAP", itu belum tentu berarti kamu bebas.
 
 ## Privasi
 
 - Bikun tidak punya server. Semua data (config, jadwal, diktat) ada di **Google Drive-mu sendiri**, di folder `Bikun/`.
 - Bikun hanya membaca akun EMAS-mu sendiri, dan tidak pernah membaca data mahasiswa lain.
 - Pemakaiannya ringan: 2 run per hari, hanya halaman yang diperlukan.
+
+## Berhenti dan hapus
+
+| Ketik | Hasil |
+|---|---|
+| `matikan bikun` | Run pagi dan malam dimatikan. Data di Drive tetap ada, dan bisa dinyalakan lagi. |
+| `hapus bikun` | Scheduled task dihapus, lalu Bikun menjelaskan cara menghapus plugin. Folder `Bikun/` di Drive tetap milikmu, simpan atau hapus sendiri. |
 
 ## Isi plugin
 
@@ -99,6 +126,8 @@ Ketik biasa saja di chat Claude:
 | `bikun:arsip` | Mencari soal lama di drive arsip yang kamu daftarkan |
 | `bikun:diktat` | Diktat Preview, Review, dan Ultimate (LaTeX → PDF) |
 | `bikun:brief` | Morning brief dan evening run |
+
+Semua skill di sini berupa file instruksi (Markdown) untuk Claude. Tidak ada program yang jalan sendiri, jadi Bikun hanya bekerja di dalam Claude.
 
 ## Lisensi
 

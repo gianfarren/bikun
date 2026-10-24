@@ -65,10 +65,14 @@ Create in the student's Drive (root): `Bikun/`, one subfolder per course, the sc
 Ask in one message, with defaults:
 1. Morning brief time (default 05:40 WIB).
 2. Evening run time (default 18:42 WIB).
-3. Which courses get a **Preview diktat** the evening before each lecture (default: none; suggest the 1–2 hardest).
+3. Which courses get a **Preview diktat** the evening before each lecture (default: none; suggest the 1–2 hardest). Each diktat is a long Claude session and uses a real share of their plan's usage. Several Preview courses plus Reviews can use up their limit in kuis week, exactly when they need Claude most. Suggest starting with one course.
 4. Automatic **Review diktat** before dated kuis (default: yes).
 
 Avoid exact :00 or :30 times; many scheduled tasks start then, and those runs can be delayed. Move a requested 06:00 to 05:4x.
+
+Runs are **every day**, weekends included. A weekday-only evening run misses the H-1 reminder for Monday and Sunday deadlines. If the student asks for weekdays only, explain that gap once and let them decide.
+
+Avoid times when the laptop is usually closed (in class, commuting). The evening run should be after the day's last lecture, so Review diktats cover what was just taught.
 
 ## Step 7: Scheduled tasks
 
@@ -85,6 +89,8 @@ Run the Bikun evening run for today (Asia/Jakarta). Load the bikun:brief skill a
 ```
 
 Save both task ids in the config. Tell the student in one sentence whether the tasks run automatically or ask for approval (from the tool result), and that their computer must be on with the Claude desktop app open at those times.
+
+**Approval mode, the student's choice.** Explain it in two sentences before creating the tasks. Automatic approval lets runs work while they sleep, but an unattended agent is acting inside their logged-in EMAS session. Bikun's rules forbid submitting or posting, but those rules are instructions, not a technical lock. Ask: "Mau run otomatis tanpa persetujuan, atau minta persetujuan tiap aksi?" If they choose approval, pass `permission_mode: "default"` and warn that runs will wait for them when nobody approves.
 
 ## Step 8: Report
 
@@ -128,4 +134,5 @@ The Drive connector can't edit a file's content in place. To update the config o
 | "ubah jam brief ke …" | Update the scheduled task's cron and the config |
 | "preview untuk <matkul>" / "stop preview" | Update `courses[].preview` and the schedule's preview rows |
 | "matikan bikun" | Disable both scheduled tasks (don't delete); keep the Drive folder |
+| "hapus bikun" / "uninstall" | Confirm first. Delete both scheduled tasks, then tell the student how to remove the plugin and that the `Bikun` Drive folder (config, schedule, diktats) is theirs to keep or trash. Don't trash it yourself unless they say so. |
 | New semester | Run full setup again; keep `archives` |
