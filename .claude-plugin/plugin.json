@@ -1,0 +1,8 @@
+{
+  "name": "bikun",
+  "version": "0.1.0",
+  "description": "Unofficial personal EMAS3 agent for Universitas Indonesia students: morning brief, H-1 reminders, Preview and Review diktats from your SAP schedule, and past-exam archives from your own Drive. Read-only on EMAS. Not affiliated with Universitas Indonesia.",
+  "author": { "name": "Gianfarren Irawan" },
+  "license": "MIT",
+  "keywords": ["emas", "moodle", "universitas-indonesia", "study", "diktat", "agent"]
+}
